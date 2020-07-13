@@ -1,34 +1,31 @@
-const exphbs = require("express-handlebars");
-const express = require("express");
-const mysql = require("mysql");
-const orm = require('orm');
-const app = express();
+var express = require("express");
 
-const PORT = process.env.PORT || 3000;
+var PORT = process.env.PORT || 8080;
 
+var app = express();
+
+// Serve static content for the app from the "public" directory in the application directory.
 app.use(express.static("public"));
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+var exphbs = require("express-handlebars");
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "milkyway",
-  database: "burgers_db"
-});
+var routes = require("./controllers/catsController.js");
+const { response } = require("express");
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
-});
 
 app.get("/", function (req,res) {
   response.send("hello world!")
 })
+
+app.listen(PORT, function() {
+
+  console.log("Server listening on: http://localhost:" + PORT);
+});
+
+
