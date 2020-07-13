@@ -1,7 +1,6 @@
 const exphbs = require("express-handlebars");
 const express = require("express");
 const mysql = require("mysql");
-const orm = require('orm');
 const app = express();
 
 const PORT = process.env.PORT || 3000;
@@ -13,20 +12,12 @@ app.use(express.json());
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const connection = mysql.createConnection({
-  host: "localhost",
-  port: 3306,
-  user: "root",
-  password: "milkyway",
-  database: "burgers_db"
-});
+var routes = require("./controllers/burgers_controller.js");
+app.use(routes);
 
-connection.connect(function(err) {
-  if (err) {
-    console.error("error connecting: " + err.stack);
-    return;
-  }
-  console.log("connected as id " + connection.threadId);
+// start the server listening
+app.listen(PORT, function() {
+  console.log("App now listening at localhost:" + PORT);
 });
 
 app.get("/", function (req,res) {
