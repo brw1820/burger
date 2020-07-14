@@ -1,12 +1,10 @@
 
 const express = require("express");
-=======
-
 const exphbs = require("express-handlebars");
 const express = require("express");
 const mysql = require("mysql");
 const app = express();
-=======
+
 var express = require("express");
 
 
@@ -29,7 +27,6 @@ app.set("view engine", "handlebars");
 const routes = require("./controllers/burgers_controller.js");
 
 app.use(routes);
-=======
 
 var routes = require("./controllers/burgers_controller.js");
 app.use(routes);
@@ -38,7 +35,7 @@ app.use(routes);
 app.listen(PORT, function() {
   console.log("App now listening at localhost:" + PORT);
 });
-=======
+
 var routes = require("./controllers/catsController.js");
 const { response } = require("express");
 
