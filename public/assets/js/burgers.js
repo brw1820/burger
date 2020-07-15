@@ -30,7 +30,7 @@ console.log("click");
       burger_name: $("#bgr").val().trim(),
       // devoured: $("#devoured").val().trim()
     };
-
+console.log("click");
     // Send the POST request.
     $.ajax("/api/burgers", {
       type: "POST",

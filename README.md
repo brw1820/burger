@@ -21,7 +21,7 @@ https://github.com/brw1820/burger
   ## Usage
 This repository contains an employee tracker program using node.js and express.js.  First, ensure you have nodemon and express installed on your computer, as well as mysql and MySQL Workbench.  Within the app.js file, proceed to put your password for MySQL Workbench if the empty field.  Each can be installed by running 'npm install' and the name of the application in your command line.  You will also be required to have MySQL Workbench installed on your computer and run the "schema.sql", put in your password, and execute the highlighted code in the file.Open server.js in your source code editor such as Visual Studio Code or iTerm by running "node server.js".
   
- ![example](/assets/burger1.PNG)
+ ![example](/burger1.PNG)
 
   ## License
   [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
